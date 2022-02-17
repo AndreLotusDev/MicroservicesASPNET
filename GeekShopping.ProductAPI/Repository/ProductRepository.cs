@@ -19,7 +19,7 @@ namespace GeekShopping.ProductAPI.Repository
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public async Task<ProductVO> Create(ProductVO productToCreate)
+        public async Task<ProductVO> CreateAsync(ProductVO productToCreate)
         {
             try
             {

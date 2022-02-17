@@ -26,6 +26,15 @@ namespace GeekShopping.ProductAPI.Controllers
             return Ok(products);
         }
 
+        [HttpPost]
+        [Route("Create")]
+        [ProducesResponseType(typeof(ProductVO), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> Create([FromBody] ProductVO productToCreate)
+        {
+            var product = await _repository.CreateAsync(productToCreate);
+            return Ok(product);
+        }
+
         [HttpGet]
         [Route("Get/{id}")]
         [ProducesResponseType(typeof(ProductVO), (int)HttpStatusCode.OK)]
@@ -56,7 +65,7 @@ namespace GeekShopping.ProductAPI.Controllers
             }
         }
 
-        [HttpPatch]
+        [HttpPut]
         [Route("Update")]
         [ProducesResponseType(typeof(ProductVO), (int)HttpStatusCode.OK)]
         [ProducesResponseType(typeof(ErrorAPI), (int)HttpStatusCode.InternalServerError)]

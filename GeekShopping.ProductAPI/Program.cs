@@ -16,10 +16,10 @@ var connection = builder.Configuration.GetConnectionString("MySQLConnection");
 builder.Services.AddDbContext<MySQLContext>
     (options => options.UseMySql(connection, new MySqlServerVersion(new Version())));
 
-var app = builder.Build();
-
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

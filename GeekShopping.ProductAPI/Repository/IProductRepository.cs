@@ -6,7 +6,7 @@ namespace GeekShopping.ProductAPI.Repository
     {
         Task<IEnumerable<ProductVO>> FindAllAsync();
         Task<ProductVO> FindByIdAsync(long id);
-        Task<ProductVO> Create(ProductVO productToCreate);
+        Task<ProductVO> CreateAsync(ProductVO productToCreate);
         Task<ProductVO> UpdateAsync(ProductVO productToUpdate);
         Task<bool> DeleteAsync(long id);
     }
